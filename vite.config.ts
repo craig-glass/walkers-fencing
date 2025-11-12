@@ -4,6 +4,8 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  // Set base path for GitHub Pages deployment
+  base: process.env.NODE_ENV === 'production' ? '/walkers-fencing/' : '/',
   plugins: [
     react(),
     runtimeErrorOverlay(),
