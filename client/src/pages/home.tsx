@@ -137,7 +137,7 @@ export default function HomePage() {
   ];
 
   const contactInfo = {
-    phone: "555-FENCE-PRO",
+    phone: "07805 972495",
     email: "info@walkersfencing.com",
     hours:
       "Monday - Friday: 7:00 AM - 6:00 PM\nSaturday: 8:00 AM - 4:00 PM\nSunday: Closed",
