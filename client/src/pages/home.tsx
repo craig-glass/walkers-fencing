@@ -6,7 +6,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { Home, Building2, Wrench, DoorOpen, Trees, Shield } from "lucide-react";
 
-import heroImage from "@assets/generated_images/Hero_wooden_fence_with_garden_7b5732e3.png";
+import heroImage from "@assets/generated_images/Hero_wooden_fence_with_garden_7b5732e3_optimized.jpg";
 import teamImage from "@assets/generated_images/Professional_fencing_contractors_at_work_bc4e7317.png";
 import privacyFence from "@assets/generated_images/Privacy_fence_craftsmanship_detail_1c0e1448.png";
 import customGate from "@assets/generated_images/Custom_decorative_gate_installation_1aa9c393.png";

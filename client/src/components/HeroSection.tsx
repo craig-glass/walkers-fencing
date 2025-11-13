@@ -21,9 +21,12 @@ export default function HeroSection({
 
   return (
     <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+      <img
+        src={backgroundImage}
+        alt="Professional fencing installation showcase"
+        className="absolute inset-0 w-full h-full object-cover"
+        fetchPriority="high"
+        loading="eager"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/60" />
 
