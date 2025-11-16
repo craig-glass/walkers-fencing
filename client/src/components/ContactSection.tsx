@@ -4,8 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 interface ContactInfo {
   phone: string;
@@ -19,24 +17,6 @@ interface ContactSectionProps {
 }
 
 export default function ContactSection({ contactInfo }: ContactSectionProps) {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Contact form submitted:', formData);
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
-
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
@@ -45,72 +25,83 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your property? Contact us for a free consultation and quote
+            Ready to transform your property? Contact us for a free consultation
+            and quote
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           <Card>
             <CardHeader>
-              <h3 className="text-2xl font-semibold text-card-foreground">Send Us a Message</h3>
-              <p className="text-sm text-muted-foreground">Fill out the form and we'll respond within 24 hours</p>
+              <h3 className="text-2xl font-semibold text-card-foreground">
+                Send Us a Message
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Fill out the form and we'll respond within 24 hours
+              </p>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                action="https://formspree.io/f/mjkjjokj"
+                // action="https://formspree.io/f/xldaawkb"
+                method="POST"
+                className="space-y-6"
+              >
                 <div>
                   <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    name="name"
                     placeholder="Your name"
                     required
                     data-testid="input-name"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    name="email"
                     placeholder="your@email.com"
                     required
                     data-testid="input-email"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="phone">Phone</Label>
                   <Input
                     id="phone"
                     type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    name="phone"
                     placeholder="(555) 123-4567"
                     data-testid="input-phone"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    name="message"
                     placeholder="Tell us about your project..."
                     rows={5}
                     required
                     data-testid="input-message"
                   />
                 </div>
-                
-                <Button type="submit" size="lg" className="w-full" data-testid="button-submit-contact">
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  data-testid="button-submit-contact"
+                >
                   Request Free Quote
                 </Button>
-                
+
                 <p className="text-xs text-muted-foreground text-center">
                   We respect your privacy and will never share your information
                 </p>
@@ -125,9 +116,11 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1 text-card-foreground">Phone</h4>
-                  <a 
-                    href={`tel:${contactInfo.phone}`} 
+                  <h4 className="font-semibold mb-1 text-card-foreground">
+                    Phone
+                  </h4>
+                  <a
+                    href={`tel:${contactInfo.phone}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                     data-testid="link-phone-contact"
                   >
@@ -143,9 +136,11 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1 text-card-foreground">Email</h4>
-                  <a 
-                    href={`mailto:${contactInfo.email}`} 
+                  <h4 className="font-semibold mb-1 text-card-foreground">
+                    Email
+                  </h4>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                     data-testid="link-email-contact"
                   >
@@ -161,7 +156,9 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1 text-card-foreground">Business Hours</h4>
+                  <h4 className="font-semibold mb-1 text-card-foreground">
+                    Business Hours
+                  </h4>
                   <p className="text-muted-foreground" data-testid="text-hours">
                     {contactInfo.hours}
                   </p>
@@ -175,8 +172,13 @@ export default function ContactSection({ contactInfo }: ContactSectionProps) {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1 text-card-foreground">Service Area</h4>
-                  <p className="text-muted-foreground" data-testid="text-location">
+                  <h4 className="font-semibold mb-1 text-card-foreground">
+                    Service Area
+                  </h4>
+                  <p
+                    className="text-muted-foreground"
+                    data-testid="text-location"
+                  >
                     {contactInfo.location}
                   </p>
                 </div>

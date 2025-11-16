@@ -81,7 +81,9 @@ export default function HeroSection({
             data-testid="link-email-hero"
           >
             <Mail className="w-5 h-5" />
-            <span className="font-medium">info@walkersfencing.com</span>
+            <span className="font-medium">
+              walkersfencingcontractors@mail.com
+            </span>
           </a>
         </div>
       </div>
