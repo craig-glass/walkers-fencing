@@ -17,10 +17,10 @@ export default function GallerySection({ images }: GallerySectionProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
   return (
-    <section id="gallery" className="py-20 bg-background">
+    <section id="gallery" className="py-20 bg-background" aria-labelledby="gallery-heading">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 font-serif text-foreground">
+          <h2 id="gallery-heading" className="text-4xl font-bold mb-4 font-serif text-foreground">
             Our Work
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -28,39 +28,43 @@ export default function GallerySection({ images }: GallerySectionProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
           {images.map((image, index) => (
-            <div
+            <button
               key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-md hover-elevate"
+              className="relative group cursor-pointer overflow-hidden rounded-md hover-elevate text-left w-full"
               onClick={() => setSelectedImage(image)}
               data-testid={`gallery-item-${index}`}
+              aria-label={`View larger image of ${image.alt}`}
+              role="listitem"
             >
               <img
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4" aria-hidden="true">
                 <Badge variant="secondary" className="bg-white/90 text-foreground">
                   {image.category}
                 </Badge>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
 
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl p-0">
+        <DialogContent className="max-w-4xl p-0" aria-labelledby="dialog-title" aria-describedby="dialog-description">
           {selectedImage && (
             <div className="relative">
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover-elevate"
                 data-testid="button-close-dialog"
+                aria-label="Close image dialog"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
               <img
                 src={selectedImage.src}
@@ -68,10 +72,10 @@ export default function GallerySection({ images }: GallerySectionProps) {
                 className="w-full h-auto"
               />
               <div className="p-6">
-                <Badge variant="secondary" className="mb-2">
+                <Badge variant="secondary" className="mb-2" id="dialog-title">
                   {selectedImage.category}
                 </Badge>
-                <p className="text-muted-foreground">{selectedImage.alt}</p>
+                <p className="text-muted-foreground" id="dialog-description">{selectedImage.alt}</p>
               </div>
             </div>
           )}

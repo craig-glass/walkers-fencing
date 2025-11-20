@@ -16,42 +16,43 @@ export default function AboutSection({ image, title, description, highlights }: 
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background" aria-labelledby="about-heading">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <h2 className="text-4xl font-bold mb-6 font-serif text-foreground">
+            <h2 id="about-heading" className="text-4xl font-bold mb-6 font-serif text-foreground">
               {title}
             </h2>
             <p className="text-lg leading-relaxed mb-8 text-foreground/80 max-w-prose">
               {description}
             </p>
-            
-            <div className="space-y-3 mb-8">
-              {highlights.map((highlight, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                  <span className="text-foreground/70">{highlight}</span>
-                </div>
-              ))}
-            </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <ul className="space-y-3 mb-8" aria-label="Company highlights">
+              {highlights.map((highlight, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" aria-hidden="true" />
+                  <span className="text-foreground/70">{highlight}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="grid grid-cols-3 gap-4" role="list" aria-label="Key features">
               {features.map((feature, index) => (
-                <Card key={index} className="p-4 text-center hover-elevate">
-                  <feature.icon className="w-8 h-8 mx-auto mb-2 text-primary" />
+                <Card key={index} className="p-4 text-center hover-elevate" role="listitem">
+                  <feature.icon className="w-8 h-8 mx-auto mb-2 text-primary" aria-hidden="true" />
                   <p className="text-sm font-medium text-card-foreground">{feature.label}</p>
                 </Card>
               ))}
             </div>
           </div>
-          
+
           <div className="order-1 lg:order-2">
-            <img 
-              src={image} 
-              alt="Our team at work" 
+            <img
+              src={image}
+              alt="Professional fencing contractors working on site, demonstrating expert craftsmanship and attention to detail"
               className="rounded-md w-full h-auto object-cover shadow-lg"
               data-testid="img-about"
+              loading="lazy"
             />
           </div>
         </div>
