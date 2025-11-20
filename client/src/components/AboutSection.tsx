@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Shield, Award, Users, CheckCircle } from "lucide-react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 interface AboutSectionProps {
   image: string;
@@ -47,11 +48,10 @@ export default function AboutSection({ image, title, description, highlights }: 
           </div>
 
           <div className="order-1 lg:order-2">
-            <img
+            <ResponsiveImage
               src={image}
               alt="Professional fencing contractors working on site, demonstrating expert craftsmanship and attention to detail"
               className="rounded-md w-full h-auto object-cover shadow-lg"
-              data-testid="img-about"
               loading="lazy"
             />
           </div>

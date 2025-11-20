@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail } from "lucide-react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 interface HeroSectionProps {
   backgroundImage: string;
@@ -24,7 +25,7 @@ export default function HeroSection({
       className="relative h-[90vh] flex items-center justify-center overflow-hidden"
       aria-label="Hero section with company introduction"
     >
-      <img
+      <ResponsiveImage
         src={backgroundImage}
         alt="Professional fencing installation showcase featuring high-quality wooden fence with landscaped garden"
         className="absolute inset-0 w-full h-full object-cover"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { X } from "lucide-react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 interface GalleryImage {
   src: string;
@@ -38,7 +39,7 @@ export default function GallerySection({ images }: GallerySectionProps) {
               aria-label={`View larger image of ${image.alt}`}
               role="listitem"
             >
-              <img
+              <ResponsiveImage
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
@@ -66,10 +67,11 @@ export default function GallerySection({ images }: GallerySectionProps) {
               >
                 <X className="w-5 h-5" aria-hidden="true" />
               </button>
-              <img
+              <ResponsiveImage
                 src={selectedImage.src}
                 alt={selectedImage.alt}
                 className="w-full h-auto"
+                loading="eager"
               />
               <div className="p-6">
                 <Badge variant="secondary" className="mb-2" id="dialog-title">
