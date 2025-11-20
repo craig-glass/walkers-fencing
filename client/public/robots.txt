@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://walkersfencingcontractors.netlify.app/sitemap.xml
+Sitemap: https://walkersfencingcontractors.com/sitemap.xml
