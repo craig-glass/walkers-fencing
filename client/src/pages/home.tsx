@@ -6,16 +6,16 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { Home, Building2, Wrench, DoorOpen, Trees, Shield } from "lucide-react";
 
-import heroImage from "@assets/generated_images/Hero_wooden_fence_with_garden_7b5732e3_optimized.jpg";
-import teamImage from "@assets/generated_images/Professional_fencing_contractors_at_work_bc4e7317.png";
-import privacyFence from "@assets/generated_images/Privacy_fence_craftsmanship_detail_1c0e1448.png";
-import customGate from "@assets/generated_images/Custom_decorative_gate_installation_1aa9c393.png";
-import backyard from "@assets/generated_images/Complete_backyard_fencing_project_da604fdb.png";
-import commercial from "@assets/generated_images/Commercial_fence_installation_project_0c6d20e7.png";
-import repair from "@assets/generated_images/Fence_repair_and_restoration_319b8cc3.png";
-import picket from "@assets/generated_images/Classic_picket_fence_garden_471b1364.png";
-import modern from "@assets/generated_images/Modern_horizontal_slat_fence_2d839dc9.png";
-import chainlink from "@assets/generated_images/Chain-link_security_fence_f86f494c.png";
+import heroImage from "@assets/generated_images/Hero_wooden_fence_with_garden_7b5732e3.webp";
+import teamImage from "@assets/generated_images/Professional_fencing_contractors_at_work_bc4e7317.webp";
+import privacyFence from "@assets/generated_images/Privacy_fence_craftsmanship_detail_1c0e1448.webp";
+import customGate from "@assets/generated_images/Custom_decorative_gate_installation_1aa9c393.webp";
+import backyard from "@assets/generated_images/Complete_backyard_fencing_project_da604fdb.webp";
+import commercial from "@assets/generated_images/Commercial_fence_installation_project_0c6d20e7.webp";
+import repair from "@assets/generated_images/Fence_repair_and_restoration_319b8cc3.webp";
+import picket from "@assets/generated_images/Classic_picket_fence_garden_471b1364.webp";
+import modern from "@assets/generated_images/Modern_horizontal_slat_fence_2d839dc9.webp";
+import chainlink from "@assets/generated_images/Chain-link_security_fence_f86f494c.webp";
 
 export default function HomePage() {
   const services = [

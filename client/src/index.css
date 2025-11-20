@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure fonts display immediately with fallbacks */
+@layer base {
+  @font-face {
+    font-family: 'Outfit';
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Lora';
+    font-display: swap;
+  }
+}
+
 /* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);
