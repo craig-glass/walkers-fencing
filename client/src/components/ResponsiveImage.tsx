@@ -4,6 +4,8 @@ interface ResponsiveImageProps {
   className?: string;
   loading?: "lazy" | "eager";
   fetchPriority?: "high" | "low" | "auto";
+  width?: number;
+  height?: number;
 }
 
 export function ResponsiveImage({
@@ -12,6 +14,8 @@ export function ResponsiveImage({
   className = "",
   loading = "lazy",
   fetchPriority = "auto",
+  width = 1024,
+  height = 768,
 }: ResponsiveImageProps) {
   // Convert desktop src to mobile src (replace .webp with -mobile.webp)
   const mobileSrc = src.replace(".webp", "-mobile.webp");
@@ -23,12 +27,16 @@ export function ResponsiveImage({
         media="(max-width: 768px)"
         srcSet={mobileSrc}
         type="image/webp"
+        width={Math.min(width, 800)}
+        height={height}
       />
       {/* Desktop: full-size images */}
       <source
         media="(min-width: 769px)"
         srcSet={src}
         type="image/webp"
+        width={width}
+        height={height}
       />
       {/* Fallback */}
       <img
@@ -37,6 +45,8 @@ export function ResponsiveImage({
         className={className}
         loading={loading}
         fetchPriority={fetchPriority}
+        width={width}
+        height={height}
       />
     </picture>
   );

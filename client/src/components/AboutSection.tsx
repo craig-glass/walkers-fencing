@@ -53,6 +53,8 @@ export default function AboutSection({ image, title, description, highlights }: 
               alt="Professional fencing contractors working on site, demonstrating expert craftsmanship and attention to detail"
               className="rounded-md w-full h-auto object-cover shadow-lg"
               loading="lazy"
+              width={1024}
+              height={768}
             />
           </div>
         </div>

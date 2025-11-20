@@ -31,6 +31,8 @@ export default function HeroSection({
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"
         loading="eager"
+        width={1920}
+        height={1080}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/60" aria-hidden="true" />
 

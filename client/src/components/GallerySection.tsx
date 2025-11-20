@@ -44,6 +44,8 @@ export default function GallerySection({ images }: GallerySectionProps) {
                 alt={image.alt}
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
+                width={800}
+                height={600}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4" aria-hidden="true">
                 <Badge variant="secondary" className="bg-white/90 text-foreground">
@@ -72,6 +74,8 @@ export default function GallerySection({ images }: GallerySectionProps) {
                 alt={selectedImage.alt}
                 className="w-full h-auto"
                 loading="eager"
+                width={1200}
+                height={900}
               />
               <div className="p-6">
                 <Badge variant="secondary" className="mb-2" id="dialog-title">
