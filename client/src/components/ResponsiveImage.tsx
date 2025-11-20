@@ -1,5 +1,6 @@
 interface ResponsiveImageProps {
   src: string;
+  mobileSrc?: string;
   alt: string;
   className?: string;
   loading?: "lazy" | "eager";
@@ -10,6 +11,7 @@ interface ResponsiveImageProps {
 
 export function ResponsiveImage({
   src,
+  mobileSrc,
   alt,
   className = "",
   loading = "lazy",
@@ -17,15 +19,15 @@ export function ResponsiveImage({
   width = 1024,
   height = 768,
 }: ResponsiveImageProps) {
-  // Convert desktop src to mobile src (replace .webp with -mobile.webp)
-  const mobileSrc = src.replace(".webp", "-mobile.webp");
+  // If no mobile src provided, just use desktop src for both
+  const mobileSource = mobileSrc || src;
 
   return (
     <picture>
       {/* Mobile: 800px width images */}
       <source
         media="(max-width: 768px)"
-        srcSet={mobileSrc}
+        srcSet={mobileSource}
         type="image/webp"
         width={Math.min(width, 800)}
         height={height}

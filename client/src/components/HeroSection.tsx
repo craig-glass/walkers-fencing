@@ -4,6 +4,7 @@ import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 interface HeroSectionProps {
   backgroundImage: string;
+  backgroundImageMobile?: string;
   companyName: string;
   tagline: string;
   yearsExperience: number;
@@ -11,6 +12,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   backgroundImage,
+  backgroundImageMobile,
   companyName,
   tagline,
   yearsExperience,
@@ -27,6 +29,7 @@ export default function HeroSection({
     >
       <ResponsiveImage
         src={backgroundImage}
+        mobileSrc={backgroundImageMobile}
         alt="Professional fencing installation showcase featuring high-quality wooden fence with landscaped garden"
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"

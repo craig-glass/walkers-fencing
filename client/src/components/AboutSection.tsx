@@ -4,12 +4,13 @@ import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 interface AboutSectionProps {
   image: string;
+  imageMobile?: string;
   title: string;
   description: string;
   highlights: string[];
 }
 
-export default function AboutSection({ image, title, description, highlights }: AboutSectionProps) {
+export default function AboutSection({ image, imageMobile, title, description, highlights }: AboutSectionProps) {
   const features = [
     { icon: Shield, label: "Licensed & Insured" },
     { icon: Award, label: "Quality Craftsmanship" },
@@ -50,6 +51,7 @@ export default function AboutSection({ image, title, description, highlights }: 
           <div className="order-1 lg:order-2">
             <ResponsiveImage
               src={image}
+              mobileSrc={imageMobile}
               alt="Professional fencing contractors working on site, demonstrating expert craftsmanship and attention to detail"
               className="rounded-md w-full h-auto object-cover shadow-lg"
               loading="lazy"

@@ -6,6 +6,7 @@ import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 interface GalleryImage {
   src: string;
+  mobileSrc?: string;
   alt: string;
   category: string;
 }
@@ -41,6 +42,7 @@ export default function GallerySection({ images }: GallerySectionProps) {
             >
               <ResponsiveImage
                 src={image.src}
+                mobileSrc={image.mobileSrc}
                 alt={image.alt}
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
@@ -71,6 +73,7 @@ export default function GallerySection({ images }: GallerySectionProps) {
               </button>
               <ResponsiveImage
                 src={selectedImage.src}
+                mobileSrc={selectedImage.mobileSrc}
                 alt={selectedImage.alt}
                 className="w-full h-auto"
                 loading="eager"

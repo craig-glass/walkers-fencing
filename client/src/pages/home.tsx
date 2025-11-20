@@ -6,6 +6,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { Home, Building2, Wrench, DoorOpen, Trees, Shield } from "lucide-react";
 
+// Desktop images
 import heroImage from "@assets/generated_images/Hero_wooden_fence_with_garden_7b5732e3.webp";
 import teamImage from "@assets/generated_images/Professional_fencing_contractors_at_work_bc4e7317.webp";
 import privacyFence from "@assets/generated_images/Privacy_fence_craftsmanship_detail_1c0e1448.webp";
@@ -16,6 +17,18 @@ import repair from "@assets/generated_images/Fence_repair_and_restoration_319b8c
 import picket from "@assets/generated_images/Classic_picket_fence_garden_471b1364.webp";
 import modern from "@assets/generated_images/Modern_horizontal_slat_fence_2d839dc9.webp";
 import chainlink from "@assets/generated_images/Chain-link_security_fence_f86f494c.webp";
+
+// Mobile images - import these so Vite includes them in the build
+import heroImageMobile from "@assets/generated_images/Hero_wooden_fence_with_garden_7b5732e3-mobile.webp";
+import teamImageMobile from "@assets/generated_images/Professional_fencing_contractors_at_work_bc4e7317-mobile.webp";
+import privacyFenceMobile from "@assets/generated_images/Privacy_fence_craftsmanship_detail_1c0e1448-mobile.webp";
+import customGateMobile from "@assets/generated_images/Custom_decorative_gate_installation_1aa9c393-mobile.webp";
+import backyardMobile from "@assets/generated_images/Complete_backyard_fencing_project_da604fdb-mobile.webp";
+import commercialMobile from "@assets/generated_images/Commercial_fence_installation_project_0c6d20e7-mobile.webp";
+import repairMobile from "@assets/generated_images/Fence_repair_and_restoration_319b8cc3-mobile.webp";
+import picketMobile from "@assets/generated_images/Classic_picket_fence_garden_471b1364-mobile.webp";
+import modernMobile from "@assets/generated_images/Modern_horizontal_slat_fence_2d839dc9-mobile.webp";
+import chainlinkMobile from "@assets/generated_images/Chain-link_security_fence_f86f494c-mobile.webp";
 
 export default function HomePage() {
   const services = [
@@ -96,41 +109,49 @@ export default function HomePage() {
   const galleryImages = [
     {
       src: privacyFence,
+      mobileSrc: privacyFenceMobile,
       alt: "Privacy fence with expert craftsmanship",
       category: "Residential",
     },
     {
       src: customGate,
+      mobileSrc: customGateMobile,
       alt: "Custom decorative gate installation",
       category: "Custom Gates",
     },
     {
       src: backyard,
+      mobileSrc: backyardMobile,
       alt: "Complete backyard fencing project",
       category: "Residential",
     },
     {
       src: commercial,
+      mobileSrc: commercialMobile,
       alt: "Commercial fence installation",
       category: "Commercial",
     },
     {
       src: repair,
+      mobileSrc: repairMobile,
       alt: "Professional fence repair and restoration",
       category: "Repairs",
     },
     {
       src: picket,
+      mobileSrc: picketMobile,
       alt: "Classic picket fence with garden",
       category: "Residential",
     },
     {
       src: modern,
+      mobileSrc: modernMobile,
       alt: "Modern horizontal slat fence",
       category: "Contemporary",
     },
     {
       src: chainlink,
+      mobileSrc: chainlinkMobile,
       alt: "Chain-link security fence",
       category: "Commercial",
     },
@@ -148,6 +169,7 @@ export default function HomePage() {
     <div className="min-h-screen">
       <HeroSection
         backgroundImage={heroImage}
+        backgroundImageMobile={heroImageMobile}
         companyName="Walkers Fencing Contractors"
         tagline="Expert Fencing Solutions for Residential & Commercial Properties"
         yearsExperience={25}
@@ -155,6 +177,7 @@ export default function HomePage() {
 
       <AboutSection
         image={teamImage}
+        imageMobile={teamImageMobile}
         title="About Walkers Fencing Contractors"
         description="With over 25 years of experience in the fencing industry, Walkers Fencing Contractors has built a reputation for exceptional craftsmanship and reliable service. We're a family-owned business dedicated to transforming properties with high-quality fencing solutions that combine durability, security, and aesthetic appeal."
         highlights={[
